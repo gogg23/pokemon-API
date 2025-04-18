@@ -5,13 +5,12 @@
 //              data asynchronously over the web.
 //              fetch(url, {options})
 
+fetchData();
 async function fetchData() {
   try {
     const pokemonName = document
       .getElementById('pokemonName')
-      .value.toLowerCase()
-      .trim(); // remove extra spaces
-
+      .value.toLowerCase();
     const response = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${pokemonName}`
     );
@@ -21,8 +20,8 @@ async function fetchData() {
     }
 
     const data = await response.json();
-    console.log(data); // or data.name, data.id, etc.
+    console.log(data);
   } catch (error) {
-    console.error(error);
+    console.error('error');
   }
 }
